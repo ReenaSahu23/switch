@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulb_Swich_On_Off</title>
+</head>
+
+<body>
+    <script>
+        const bodyElement = document.body;
+        bodyElement.style.display = 'flex';
+        bodyElement.style.justifyContent = 'center';
+        bodyElement.style.alignItems = 'center';
+        bodyElement.style.height = '100vh';
+        bodyElement.style.margin = '0';
+        bodyElement.style.backgroundColor = '#f0f0f0';
+
+        const imgOn = 'https://media.istockphoto.com/id/502789173/photo/light-bulb-concept.jpg?s=612x612&w=0&k=20&c=vJfSDuFJf_4UsQcUsdMNUfDkkNU6Bf9cTHF-n4-Zwvs=';
+        const imgOff = 'https://img.freepik.com/premium-photo/glowing-fluorescent-light-bulbs-dark-background-idea-concept-ai-generative_955712-9304.jpg';
+        const switchOn = imgOn;
+        const switchOff = imgOff;
+
+        let isLightOn = true;
+
+        const myDiv = document.createElement('div');
+        myDiv.style.width = '90%';
+        myDiv.style.maxWidth = '300px';
+        myDiv.style.height = '50%';
+        myDiv.style.border = '1px solid black';
+        myDiv.style.marginLeft = '5vw'
+        myDiv.style.padding = '20px';
+        myDiv.style.backgroundColor = 'gray';
+        myDiv.style.textAlign = 'center';
+        myDiv.style.borderRadius = '10px';
+        myDiv.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)'
+        bodyElement.appendChild(myDiv);
+
+        const image = document.createElement('img');
+        image.src = imgOn;
+        image.alt = 'Img';
+        image.style.width = '100%';
+        image.style.maxWidth = '250px';
+        image.style.borderRadius = '8px';
+        myDiv.appendChild(image);
+
+        const button = document.createElement('button');
+        button.textContent = 'switchOn';
+        button.style.textAlign = 'center';
+        button.style.marginTop = '15px';
+        button.style.padding = '10px 10px';
+        button.style.border = 'none';
+        button.style.backgroundColor = '#007BFF';
+        button.style.color = '#fff';
+        button.style.cursor = 'pointer';
+        button.style.borderRadius = '5px';
+        button.style.fontSize = '16px';
+        myDiv.appendChild(button);
+
+
+        button.addEventListener('click', () => {
+            isLightOn = !isLightOn;  // Toggle the light state (ON/OFF)
+            image.src = isLightOn ? imgOn : imgOff; // Change image based on state
+            button.textContent = isLightOn ? 'Switch Off' : 'Switch On'; // Update button text
+            bodyElement.style.backgroundColor = isLightOn ? '#f0f0f0' : '#333';  // Toggle between light/dark background color
+        });
+
+        const toggleButton = document.createElement('button');
+        toggleButton.textContent = '🌙';
+        toggleButton.style.marginTop = '20px';
+        toggleButton.style.padding = '8px 15px';
+        toggleButton.style.border = 'none';
+        toggleButton.style.backgroundColor = 'black';
+        toggleButton.style.color = '#fff';
+        toggleButton.style.cursor = 'pointer';
+        toggleButton.style.borderRadius = '3px';
+        toggleButton.style.fontSize = '16px';
+        myDiv.appendChild(toggleButton);
+
+        let isDarkMode = false;
+
+        toggleButton.addEventListener('click', ()=>{
+            isDarkMode = !isDarkMode;
+            bodyElement.style.backgroundColor = isDarkMode? '#333' : '#f0f0f0';
+            bodyElement.style.color = isDarkMode? '#fff' : '#000';
+            toggleButton.textContent = isDarkMode? '☀️' : '🌙';
+        });
+
+    </script>
+
+</body>
+
+</html>
